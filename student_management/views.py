@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 from app.EmailBackEnd import EmailBackEnd
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 def Home(request):
 
@@ -23,10 +24,11 @@ def dologin(request):
             elif user_type == '3':
                 return HttpResponse('This is Student Pannel')
             else:
-                #message
+                messages.error(request, 'Email or password is not match!')
                 return redirect('login')
         else:
             print('invalid cred')
-    else:
-        #message
+            messages.error(request, 'Email or password is not match! 222')
+            return render(request, 'includes/login.html')
+    else:        
         return render(request, 'includes/login.html')

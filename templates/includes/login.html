@@ -11,6 +11,15 @@
                     <div class="col-sm-6 auth-box">
                         <div class="proclinic-box-shadow">
                             <h3 class="widget-title">Login</h3>
+                            {% if messages %}
+                            {% for message in messages %}
+                            
+                            <div class="alert alert-danger" role="alert">
+                               {{message}} 
+                            </div>
+                           
+                            {% endfor %}
+                            {% endif %}
 
                             <form class="widget-form" method="POST">
 
