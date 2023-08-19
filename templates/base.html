@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>ProClinic-Bootstrap4 Hospital Admin</title>
+	<!-- Fav  Icon Link -->
+	<link rel="shortcut icon" type="image/png" href="{% static 'assets/images/fav.png' %}">
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+	<!-- themify icons CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}">
+	<!-- Animations CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+	<!-- Main CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/green.css' %}" id="style_theme">
+	<link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+	<!-- morris charts -->
+	<link rel="stylesheet" href="{% static 'assets/charts/css/morris.css' %}">
+	<!-- jvectormap -->
+	<link rel="stylesheet" href="{% static 'assets/css/jquery-jvectormap.css' %}">
+
+	<script src="{% static 'assets/js/modernizr.min.js' %}"></script>
+</head>
+
+<body>
+    {% include "header.html" %}
+
+    {% block content %}
+
+    {% endblock content %}
+
+    <!-- Jquery Library-->
+	<script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
+	<!-- Popper Library-->
+	<script src="{% static 'assets/js/popper.min.js' %}"></script>
+	<!-- Bootstrap Library-->
+	<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+	<!-- morris charts -->
+	<script src="{% static 'assets/charts/js/raphael-min.js' %}"></script>
+	<script src="{% static 'assets/charts/js/morris.min.js' %}"></script>
+	<script src="{% static 'assets/js/custom-morris.js' %}"></script>
+
+	<!-- Custom Script-->
+	<script src="{% static 'assets/js/custom.js' %}"></script>
+</body>
+</html>
