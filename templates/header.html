@@ -115,39 +115,39 @@
 	                        <li class="nav-item dropdown active">
 	                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
 	                                aria-haspopup="true" aria-expanded="false"><span class="ti-home"></span> Dashboard</a>
-	                            <div class="dropdown-menu">
-	                            </div>
+	                            <!-- <div class="dropdown-menu">
+									<a class="dropdown-item" href="#">Hod</a>
+									<a class="dropdown-item" href="#">Stuff</a>
+									<a class="dropdown-item" href="#">Student</a>
+	                            </div> -->
 	                        </li>
 	                        <li class="nav-item dropdown">
 	                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
 	                                aria-haspopup="true" aria-expanded="false"><span class="ti-wheelchair"></span>
-	                                Patients</a>
+	                                Stuff</a>
 	                            <div class="dropdown-menu">
-	                                <a class="dropdown-item" href="add-patient.html">Add Patient</a>
-	                                <a class="dropdown-item" href="patients.html">All Patients</a>
-	                                <a class="dropdown-item" href="about-patient.html">Patient Details</a>
-	                                <a class="dropdown-item" href="edit-patient.html">Edit Patient</a>
+	                                <a class="dropdown-item" href="add-patient.html">Add Stuff</a>
+	                                <a class="dropdown-item" href="patients.html">All Stuff</a>
+	                                <a class="dropdown-item" href="edit-patient.html">Edit Stuff</a>
 	                            </div>
 	                        </li>
 	                        <li class="nav-item dropdown">
 	                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-	                                aria-haspopup="true" aria-expanded="false"><span class="ti-user"></span> Doctors</a>
+	                                aria-haspopup="true" aria-expanded="false"><span class="ti-user"></span> Student</a>
 	                            <div class="dropdown-menu">
-	                                <a class="dropdown-item" href="add-doctor.html">Add Doctor</a>
-	                                <a class="dropdown-item" href="doctors.html">All Doctors</a>
-	                                <a class="dropdown-item" href="about-doctor.html">Doctor Details</a>
-	                                <a class="dropdown-item" href="edit-doctor.html">Edit Doctor</a>
+	                                <a class="dropdown-item" href="add-doctor.html">Add Student</a>
+	                                <a class="dropdown-item" href="doctors.html">All Student</a>
+	                                <a class="dropdown-item" href="edit-doctor.html">Edit Student</a>
 	                            </div>
 	                        </li>
 	                        <li class="nav-item dropdown">
 	                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
 	                                aria-haspopup="true" aria-expanded="false"><span class="ti-pencil-alt"></span>
-	                                Appointments</a>
+	                                course</a>
 	                            <div class="dropdown-menu">
-	                                <a class="dropdown-item" href="add-appointment.html">Add Appointment</a>
-	                                <a class="dropdown-item" href="appointments.html">All Appointments</a>
-	                                <a class="dropdown-item" href="about-appointment.html">Appointment Details</a>
-	                                <a class="dropdown-item" href="edit-appointment.html">Edit Appointment</a>
+	                                <a class="dropdown-item" href="add-appointment.html">Add Course</a>
+	                                <a class="dropdown-item" href="appointments.html">All Course</a>
+	                                <a class="dropdown-item" href="edit-appointment.html">Edit Course</a>
 	                            </div>
 	                        </li>
 	                        <li class="nav-item dropdown">
@@ -204,8 +204,8 @@
 	                            <div class="dropdown-menu">
 	                                <a class="dropdown-item" href="login.html">Login </a>
 	                                <a class="dropdown-item" href="sign-up.html">Sign Up</a>
-	                                <a class="dropdown-item" href="404.html">404</a>
-	                                <a class="dropdown-item" href="blank-page.html">Blank Page</a>
+	                                <a class="dropdown-item" href="404.html">404</a>									
+	                                <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
 	                                <a class="dropdown-item" href="pricing.html">Pricing</a>
 	                                <a class="dropdown-item" href="faq.html">FAQ</a>
 	                                <a class="dropdown-item" href="invoice.html">Invoice</a>
@@ -221,16 +221,19 @@
 	        <div class="container mt-0">
 	            <div class="row breadcrumb-bar">
 	                <div class="col-md-6">
-	                    <h3 class="block-title">Quick Statistics</h3>
+	                    <h3 class="block-title">Welcome <span>{{user.first_name}} {{user.last_name}}</span></h3>
+						{% if user.profile_pic == "" %}
+						<img src="{% static 'assets/images/doctor.jpg' %}" alt="">
+						{% else %}
+						<img src="{{user.profile_pic.url}}" alt="">
+						{% endif %}
 	                </div>
 	                <div class="col-md-6">
-	                    <ol class="breadcrumb">
-	                        <li class="breadcrumb-item">
-	                            <a href="index.html">
-	                                <span class="ti-home"></span>
-	                            </a>
-	                        </li>
-	                        <li class="breadcrumb-item active">Dashboard</li>
+	                    <ol class="breadcrumb">	                        
+	                        <a href="{% url 'dologin' %}">
+								<li class="breadcrumb-item active">Logout</li>
+
+							</a>
 	                    </ol>
 	                </div>
 	            </div>

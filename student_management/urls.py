@@ -13,5 +13,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', views.Home, name='home'),
     path('', views.dologin, name='dologin'),
-    # path('Hod/home', hod_views.home, name='home')
+    path('', views.dologout, name='dologout'),
+    
+    path('profile/', views.Profile, name='profile'),
+    path('profile/update', views.Profile_update, name= 'profile_update'),
+    path('Hod/home', hod_views.home, name='hod_home')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
