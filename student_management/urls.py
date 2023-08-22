@@ -17,5 +17,6 @@ urlpatterns = [
     
     path('profile/', views.Profile, name='profile'),
     path('profile/update', views.Profile_update, name= 'profile_update'),
-    path('Hod/home', hod_views.home, name='hod_home')
+    path('Hod/home', hod_views.home, name='hod_home'),
+    path('hod/student/add_student', hod_views.Add_sutdent, name='add_student'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
