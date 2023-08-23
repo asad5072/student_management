@@ -15,19 +15,21 @@ def Add_sutdent(request):
     session_year = Session_Year.objects.all()
 
     if request.method == "POST":
+        print(request.POST)
         profile_pic = request.FILES.get('student_pic')
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
-        gender = request.POST.get('gender')
+        # gender = request.POST.get('gender')
         # class_name = request.POST.get('class_name')
         # department_name = request.POST.get('department_name')
-        course_id = request.POST.get('course_name')
+        course_id = request.POST.get('course_id')
         session_year_id = request.POST.get('session_year_id')
         # class_roll = request.POST.get('class_roll')
         # id_number = request.POST.get('id_number')
         email = request.POST.get('email')
         password = request.POST.get('password'),
         username = request.POST.get('username')
+        print(username,333333333333)
         # fathers_name = request.POST.get('fathers_name')
         # mothers_name = request.POST.get('mothers_name')
         # do_brith = request.POST.get('do_brith')
@@ -51,11 +53,11 @@ def Add_sutdent(request):
                 username = username,
                 profile_pic = profile_pic,
                 user_type = 3,
-                gender    = gender,
+                # gender = gender,
                 # class_name = class_name,
                 # department_name = department_name,
-                course_name = course_id,
-                session_year_id = session_year_id,
+                # course_name = course_id,
+                # session_year_id = session_year_id,
                 # class_roll = class_roll,
                 # id_number = id_number,
                 email = email,
@@ -79,7 +81,7 @@ def Add_sutdent(request):
                 # address = pr_address,
                 session_year_id = session_year,
                 course_id = course,
-                gender = gender,
+                # gender = gender,
 
             )
             student.save()
