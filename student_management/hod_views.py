@@ -19,25 +19,24 @@ def Add_sutdent(request):
         profile_pic = request.FILES.get('student_pic')
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
-        # gender = request.POST.get('gender')
-        # class_name = request.POST.get('class_name')
-        # department_name = request.POST.get('department_name')
+        gender = request.POST.get('gender')
+        class_name = request.POST.get('class_name')
+        department_name = request.POST.get('department_name')
         course_id = request.POST.get('course_id')
         session_year_id = request.POST.get('session_year_id')
-        # class_roll = request.POST.get('class_roll')
-        # id_number = request.POST.get('id_number')
+        class_roll = request.POST.get('class_roll')
+        id_number = request.POST.get('id_number')
         email = request.POST.get('email')
-        password = request.POST.get('password'),
+        password = request.POST.get('password')
         username = request.POST.get('username')
-        print(username,333333333333)
-        # fathers_name = request.POST.get('fathers_name')
-        # mothers_name = request.POST.get('mothers_name')
-        # do_brith = request.POST.get('do_brith')
-        # blood_group = request.POST.get('blood_group')
-        # mobile_number = request.POST.get('mobile_number')
-        # pr_address = request.POST.get('pr_address')
-        # per_address = request.POST.get('fathers_name')
-        # any_notes = request.POST.get('any_notes')
+        fathers_name = request.POST.get('fathers_name')
+        mothers_name = request.POST.get('mothers_name')
+        do_brith = request.POST.get('do_brith')
+        blood_group = request.POST.get('blood_group')
+        mobile_number = request.POST.get('mobile_number')
+        address = request.POST.get('address')
+        # per_address = request.POST.get('pr_address')
+        any_notes = request.POST.get('any_notes')
 
         if CustomUser.objects.filter(email=email).exists():
             messages.warning(request, 'Email Already Taken.')
@@ -52,25 +51,10 @@ def Add_sutdent(request):
                 last_name = last_name,
                 username = username,
                 profile_pic = profile_pic,
-                user_type = 3,
-                # gender = gender,
-                # class_name = class_name,
-                # department_name = department_name,
-                # course_name = course_id,
-                # session_year_id = session_year_id,
-                # class_roll = class_roll,
-                # id_number = id_number,
-                email = email,
-                # fathers_name = fathers_name,
-                # mothers_name = mothers_name,
-                # do_brith = do_brith,
-                # blood_group = blood_group,
-                # mobile_number = mobile_number,
-                # pr_address = pr_address,
-                # per_address = per_address,
-                # any_notes = any_notes,
+                user_type = 3,                
+                email = email,               
             )
-            user.set_password = password
+            user.set_password(password)
             user.save()
 
             course = Course.objects.get(id=course_id)
@@ -78,10 +62,22 @@ def Add_sutdent(request):
 
             student = Student(
                 admin = user,
-                # address = pr_address,
                 session_year_id = session_year,
                 course_id = course,
-                # gender = gender,
+                gender = gender,
+                class_name = class_name,
+                department_name = department_name,
+                # course_name = course,
+                class_roll = class_roll,
+                id_number = id_number,
+                fathers_name = fathers_name,
+                mothers_name = mothers_name,
+                do_brith = do_brith,
+                blood_group = blood_group,
+                mobile_number = mobile_number,
+                address = address,
+                # per_address = per_address,
+                any_notes = any_notes,
 
             )
             student.save()
@@ -91,8 +87,6 @@ def Add_sutdent(request):
     context= {
         'course': course,
         'session_year': session_year,
-    }
-    
-
+    }   
     return render(request, 'Hod/add_student.html', context)
 

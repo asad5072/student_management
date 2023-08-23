@@ -35,11 +35,22 @@ class Session_Year(models.Model):
 class Student(models.Model):
     admin = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     address = models.TextField(null=True, blank=True)
-    # gender = models.CharField(max_length=100, blank=True, null=True)
+    gender = models.CharField(max_length=100, blank=True, null=True)
     course_id = models.ForeignKey(Course, on_delete=models.DO_NOTHING)
-    session_year_id = models.ForeignKey(Session_Year, on_delete=models.DO_NOTHING)
+    session_year_id = models.ForeignKey(Session_Year, on_delete=models.DO_NOTHING)   
+    class_name = models.CharField(max_length=100, blank=True, null= True)
+    department_name = models.CharField(max_length=100, blank=True, null= True)
+    class_roll = models.CharField(max_length=100, blank=True, null= True)
+    id_number = models.CharField(max_length=100, blank=True, null= True)
+    fathers_name = models.CharField(max_length=100, blank=True, null= True)
+    mothers_name = models.CharField(max_length=100, blank=True, null= True)
+    do_brith = models.CharField(max_length=100, blank=True, null= True)
+    blood_group = models.CharField(max_length=100, blank=True, null= True)
+    mobile_number = models.CharField(max_length=100, blank=True, null= True)
+    pr_address = models.TextField(null=True, blank=True)
+    any_notes = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.admin.first_name + ''+ self.admin.last_name
+        return self.admin.first_name + ' '+ self.admin.last_name
