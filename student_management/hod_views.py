@@ -81,7 +81,7 @@ def Add_sutdent(request):
 
             )
             student.save()
-            messages.success(request, 'Student Information Added Successfully!')
+            messages.success(request, user.first_name + " " + user.last_name + ' is Added Successfully!')
             return redirect('add_student')
 
     context= {
@@ -89,4 +89,8 @@ def Add_sutdent(request):
         'session_year': session_year,
     }   
     return render(request, 'Hod/add_student.html', context)
+
+# view student
+def View_student(request):
+    return render(request, 'Hod/view_student.html')
 

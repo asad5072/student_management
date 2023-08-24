@@ -11,38 +11,9 @@
                 
                 <form method="POST" action="{% url 'add_student' %}" enctype="multipart/form-data">
                     {% csrf_token %}
-                   
-
-                    {% if messages %}
-                        {% for message in messages %}
-                            {% if message.tags == 'error' %}                        
-                                <div class="alert alert-danger" role="alert">
-                                    {{message}}
-                                </div>
-                            {% endif %}                          
-                        {% endfor %}
-                    {% endif %}
-                    {% if messages %}
-                        {% for message in messages %}
-                            {% if message.tags == 'warning' %}                        
-                                <div class="alert alert-danger" role="alert">
-                                    {{message}}
-                                </div>
-                            {% endif %}                          
-                        {% endfor %}
-                    {% endif %}
-
-                    {% if messages %}
-                        {% for message in messages %}
-                            {% if message.tags == 'success' %}                        
-                                <div class="alert alert-success" role="alert">
-                                    {{message}}
-                                </div>
-                            {% endif %}                          
-                        {% endfor %}
-                    {% endif %}
-
-
+                    
+                    {% include 'includes/messages.html' %}
+                    
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="file">Image</label>
