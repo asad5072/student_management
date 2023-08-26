@@ -92,5 +92,50 @@ def Add_sutdent(request):
 
 # view student
 def View_student(request):
-    return render(request, 'Hod/view_student.html')
+    student = Student.objects.all()
+    # print(student)
+    context = {
+        'student' : student
+    }
+    return render(request, 'Hod/view_student.html', context)
 
+# Edit Student
+def Edit_student(request, id):
+    student = Student.objects.filter(id=id)
+    course = Course.objects.all()
+    session_year =  Session_Year.objects.all()
+
+    context = {
+        'student':student,
+        'course': course,
+        'session_year': session_year
+    }
+    return render(request, 'Hod/edit_student.html', context)
+
+# Update Student 
+def Update_student(request):
+    if request.method == "POST":
+        print(request.POST)
+        profile_pic = request.FILES.get('student_pic')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        gender = request.POST.get('gender')
+        class_name = request.POST.get('class_name')
+        department_name = request.POST.get('department_name')
+        course_id = request.POST.get('course_id')
+        session_year_id = request.POST.get('session_year_id')
+        class_roll = request.POST.get('class_roll')
+        id_number = request.POST.get('id_number')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        username = request.POST.get('username')
+        fathers_name = request.POST.get('fathers_name')
+        mothers_name = request.POST.get('mothers_name')
+        do_brith = request.POST.get('do_brith')
+        blood_group = request.POST.get('blood_group')
+        mobile_number = request.POST.get('mobile_number')
+        address = request.POST.get('address')
+        # per_address = request.POST.get('pr_address')
+        any_notes = request.POST.get('any_notes')
+        
+    return render(request, 'Hod/update_student.html')

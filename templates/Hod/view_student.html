@@ -30,24 +30,16 @@
                                 <table id="tableId" class="table table-bordered table-striped dataTable no-footer"
                                     role="grid" aria-describedby="tableId_info">
                                     <thead>
-                                        <tr role="row">
-                                            <th class="no-sort sorting_disabled" rowspan="1" colspan="1" aria-label="
-                                    
-                                        
-                                        
-                                    
-                                " style="width: 20px;">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox" id="select-all">
-                                                    <label class="custom-control-label" for="select-all"></label>
-                                                </div>
-                                            </th>
+                                        <tr role="row">                                            
                                             <th class="sorting" tabindex="0" aria-controls="tableId" rowspan="1"
                                                 colspan="1" aria-label="Patient ID: activate to sort column ascending"
-                                                style="width: 137.797px;">Patient ID</th>
+                                                style="width: 137.797px;">Student ID</th>
+                                            <th class="sorting" tabindex="0" aria-controls="tableId" rowspan="1"
+                                                colspan="1" aria-label="Patient ID: activate to sort column ascending"
+                                                style="width: 60px;">Image</th>
                                             <th class="sorting" tabindex="0" aria-controls="tableId" rowspan="1"
                                                 colspan="1" aria-label="Patient Name: activate to sort column ascending"
-                                                style="width: 180.844px;">Patient Name</th>
+                                                style="width: 180.844px;">Student Name</th>
                                             <th class="sorting" tabindex="0" aria-controls="tableId" rowspan="1"
                                                 colspan="1" aria-label="Age: activate to sort column ascending"
                                                 style="width: 67.3594px;">Class</th>
@@ -56,207 +48,32 @@
                                                 style="width: 139.844px;">Phone</th>
                                             <th class="sorting" tabindex="0" aria-controls="tableId" rowspan="1"
                                                 colspan="1" aria-label="last Visit: activate to sort column ascending"
-                                                style="width: 122.266px;">DOB</th>
+                                                style="width: 122.266px;">Date of Birth</th>
                                             <th class="sorting" tabindex="0" aria-controls="tableId" rowspan="1"
                                                 colspan="1" aria-label="Status: activate to sort column ascending"
                                                 style="width: 115.891px;">Parents Name</th>
+                                            <th class="sorting" tabindex="0" aria-controls="tableId" rowspan="1"
+                                                colspan="1" aria-label="Status: activate to sort column ascending"
+                                                style="width: 50px;">Action</th>
                                             
                                         </tr>
                                     </thead>
                                     <tbody>
-
-                                        <tr role="row" class="odd">
+                                        {%  for i in student %}
+                                        <tr role="row" class="odd">                                            
+                                            <td>{{i.id_number}}</td>
+                                            <td><img style="height: 50px; border-radius: 50%;" src="/media/{{i.admin.profile_pic}}" alt=""></td>
+                                            <td>{{i.admin.first_name}} {{i.admin.last_name}}</td>
+                                            <td>{{i.class_name}}</td>
+                                            <td>{{i.mobile_number}}</td>
+                                            <td>{{i.do_brith}}</td>
+                                            <td>{{i.pr_address}}</td>
                                             <td>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox" id="1">
-                                                    <label class="custom-control-label" for="1"></label>
-                                                </div>
-                                            </td>
-                                            <td>1</td>
-                                            <td>Manoj Kumar</td>
-                                            <td>30</td>
-                                            <td>333-444-7777</td>
-                                            <td>12-03-2018</td>
-                                            <td>
-                                                <span class="badge badge-success">Completed</span>
+                                                <a href="{% url 'edit_student' i.id %}"><span style="color: yellowgreen;" class="ti-pencil-alt"></span></a>
+                                                <a href="#"><span style="color: red;" class="ti-trash"></span></a>
                                             </td>
                                         </tr>
-                                        <tr role="row" class="even">
-                                            <td>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox" id="2">
-                                                    <label class="custom-control-label" for="2"></label>
-                                                </div>
-                                            </td>
-                                            <td>2</td>
-                                            <td>Riya </td>
-                                            <td>26</td>
-                                            <td>3423-232-987</td>
-                                            <td>12-10-2018</td>
-                                            <td>
-                                                <span class="badge badge-warning">Pending</span>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="odd">
-                                            <td>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox" id="3">
-                                                    <label class="custom-control-label" for="3"></label>
-                                                </div>
-                                            </td>
-                                            <td>3</td>
-                                            <td>Paul</td>
-                                            <td>46</td>
-                                            <td>3423-132-987</td>
-                                            <td>45-10-2018</td>
-                                            <td>
-                                                <span class="badge badge-danger">Cancelled</span>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="even">
-                                            <td>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox" id="4">
-                                                    <label class="custom-control-label" for="4"></label>
-                                                </div>
-                                            </td>
-                                            <td>4</td>
-                                            <td>Manoj Kumar</td>
-                                            <td>30</td>
-                                            <td>333-444-7777</td>
-                                            <td>12-03-2018</td>
-                                            <td>
-                                                <span class="badge badge-success">Completed</span>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="odd">
-                                            <td>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox" id="5">
-                                                    <label class="custom-control-label" for="5"></label>
-                                                </div>
-                                            </td>
-                                            <td>5</td>
-                                            <td>Riya </td>
-                                            <td>26</td>
-                                            <td>3423-232-987</td>
-                                            <td>12-10-2018</td>
-                                            <td>
-                                                <span class="badge badge-warning">Pending</span>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="even">
-                                            <td>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox" id="6">
-                                                    <label class="custom-control-label" for="6"></label>
-                                                </div>
-                                            </td>
-                                            <td>6</td>
-                                            <td>Paul</td>
-                                            <td>46</td>
-                                            <td>3423-132-987</td>
-                                            <td>45-10-2018</td>
-                                            <td>
-                                                <span class="badge badge-danger">Cancelled</span>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="odd">
-                                            <td>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox" id="7">
-                                                    <label class="custom-control-label" for="7"></label>
-                                                </div>
-                                            </td>
-                                            <td>7</td>
-                                            <td>Manoj Kumar</td>
-                                            <td>30</td>
-                                            <td>333-444-7777</td>
-                                            <td>12-03-2018</td>
-                                            <td>
-                                                <span class="badge badge-success">Completed</span>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="even">
-                                            <td>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox" id="8">
-                                                    <label class="custom-control-label" for="8"></label>
-                                                </div>
-                                            </td>
-                                            <td>8</td>
-                                            <td>Riya </td>
-                                            <td>26</td>
-                                            <td>3423-232-987</td>
-                                            <td>12-10-2018</td>
-                                            <td>
-                                                <span class="badge badge-warning">Pending</span>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="odd">
-                                            <td>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox" id="9">
-                                                    <label class="custom-control-label" for="9"></label>
-                                                </div>
-                                            </td>
-                                            <td>9</td>
-                                            <td>Paul</td>
-                                            <td>46</td>
-                                            <td>3423-132-987</td>
-                                            <td>45-10-2018</td>
-                                            <td>
-                                                <span class="badge badge-danger">Cancelled</span>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="even">
-                                            <td>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox" id="10">
-                                                    <label class="custom-control-label" for="10"></label>
-                                                </div>
-                                            </td>
-                                            <td>10</td>
-                                            <td>Manoj Kumar</td>
-                                            <td>30</td>
-                                            <td>333-444-7777</td>
-                                            <td>12-03-2018</td>
-                                            <td>
-                                                <span class="badge badge-success">Completed</span>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="odd">
-                                            <td>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox" id="11">
-                                                    <label class="custom-control-label" for="11"></label>
-                                                </div>
-                                            </td>
-                                            <td>11</td>
-                                            <td>Riya </td>
-                                            <td>26</td>
-                                            <td>3423-232-987</td>
-                                            <td>12-10-2018</td>
-                                            <td>
-                                                <span class="badge badge-warning">Pending</span>
-                                            </td>
-                                        </tr>
-                                        <tr role="row" class="even">
-                                            <td>
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox" id="12">
-                                                    <label class="custom-control-label" for="12"></label>
-                                                </div>
-                                            </td>
-                                            <td>12</td>
-                                            <td>Paul</td>
-                                            <td>46</td>
-                                            <td>3423-132-987</td>
-                                            <td>45-10-2018</td>
-                                            <td>
-                                                <span class="badge badge-danger">Cancelled</span>
-                                            </td>
-                                        </tr>
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>

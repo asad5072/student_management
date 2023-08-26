@@ -7,9 +7,9 @@
         <!-- Widget Item -->
         <div class="col-md-12">
             <div class="widget-area-2 proclinic-box-shadow">
-                <h3 class="widget-title">Add A Student</h3>
+                <h3 class="widget-title">Edit A Student</h3>
                 
-                <form method="POST" action="{% url 'add_student' %}" enctype="multipart/form-data">
+                <form method="POST" action="{% url 'update_student' %}" enctype="multipart/form-data">
                     {% csrf_token %}
                     
                     {% include 'includes/messages.html' %}
@@ -21,11 +21,11 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="Doctor-name">First Name</label>
-                            <input type="text" class="form-control" name="first_name" placeholder="First name" id="Doctor-name">
+                            <input type="text" value="{% for i in student %}{{i.admin.first_name}}{% endfor %}" class="form-control" name="first_name" placeholder="First name" id="Doctor-name">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="dob">Last Name</label>
-                            <input type="text" placeholder="Last Name" name="last_name" class="form-control" id="dob">
+                            <input type="text" value="{% for i in student %}{{i.admin.last_name}}{% endfor %}" placeholder="Last Name" name="last_name" class="form-control" id="dob">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="dob">Gender</label>
@@ -38,11 +38,11 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="dob">Class Name</label>
-                            <input type="text" placeholder="Class Name" name="class_name" class="form-control" id="dob">
+                            <input type="text" value="{% for i in student %}{{i.class_name}}{% endfor %}" placeholder="Class Name" name="class_name" class="form-control" id="dob">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="dob">Department Name</label>
-                            <input type="text" placeholder="Department Name" name="department_name" class="form-control" id="dob">
+                            <input type="text" value="{% for i in student %}{{i.department_name}}{% endfor %}" placeholder="Department Name" name="department_name" class="form-control" id="dob">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="dob">Course Name</label>
@@ -64,47 +64,47 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="dob">Class Roll No</label>
-                            <input type="text" placeholder="Class Roll No " name="class_roll" class="form-control" id="dob">
+                            <input type="text" value="{% for i in student %}{{i.class_roll}}{% endfor %}" placeholder="Class Roll No " name="class_roll" class="form-control" id="dob">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="dob">ID Number</label>
-                            <input type="text" placeholder="ID Number" name="id_number" class="form-control" id="dob">
+                            <input type="text" value="{% for i in student %}{{i.id_number}}{% endfor %}" placeholder="ID Number" name="id_number" class="form-control" id="dob">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="specialization">Email</label>
-                            <input type="email" placeholder="Email" name="email" class="form-control">
+                            <input type="email" value="{% for i in student %}{{i.email}}{% endfor %}" placeholder="Email" name="email" class="form-control" id="specialization">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="specialization">Password</label>
-                            <input type="password" placeholder="Password" name="password" class="form-control">
+                            <input type="password" placeholder="Fill If you want to change the password" name="password" class="form-control" id="specialization">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="specialization">Username</label>
-                            <input type="text" placeholder="Username" name="username" class="form-control">
+                            <input type="text" value="{% for i in student %}{{i.username}}{% endfor %}" placeholder="Username" name="username" class="form-control" id="specialization">
                         </div>                       
                         <div class="form-group col-md-6">
                             <label for="experience">Father's Name</label>
-                            <input type="text" placeholder="Father's Name" name="fathers_name" class="form-control" id="experience">
+                            <input type="text" value="{% for i in student %}{{i.fathers_name}}{% endfor %}" placeholder="Father's Name" name="fathers_name" class="form-control" id="experience">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="experience">Mother's Name</label>
-                            <input type="text" placeholder="Mother's Name" name="mothers_name" class="form-control" id="experience">
+                            <input type="text" value="{% for i in student %}{{i.mothers_name}}{% endfor %}" placeholder="Mother's Name" name="mothers_name" class="form-control" id="experience">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="experience">Date Of Birth</label>
-                            <input type="number" placeholder="Date Of Birth" name="do_brith" class="form-control" id="experience">
+                            <input type="number" value="{% for i in student %}{{i.do_brith}}{% endfor %}" placeholder="Date Of Birth" name="do_brith" class="form-control" id="experience">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="experience">Blood Group</label>
-                            <input type="text" placeholder="Blood Group" name="blood_group" class="form-control" id="experience">
+                            <input type="text" value="{% for i in student %}{{i.blood_group}}{% endfor %}" placeholder="Blood Group" name="blood_group" class="form-control" id="experience">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="experience">Mobile No</label>
-                            <input type="number" placeholder="Mobile No" name="mobile_number" class="form-control" id="experience">
+                            <input type="number" value="{% for i in student %}{{i.mobile_number}}{% endfor %}" placeholder="Mobile No" name="mobile_number" class="form-control" id="experience">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="experience">Present Address</label>
-                            <textarea name="address" class="form-control"></textarea>
+                            <textarea name="address" class="form-control">{% for i in student %}{{i.address}}{% endfor %}</textarea>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="experience">Permanent Address</label>
@@ -113,10 +113,10 @@
                         
                         <div class="form-group col-md-6">
                             <label for="experience">Any Kind of Notifications-alerts</label>
-                            <textarea name="any_notes" class="form-control"></textarea>
+                            <textarea name="any_notes" class="form-control">{% for i in student %}{{i.any_notes}}{% endfor %}</textarea>
                         </div>
                         <div class="form-group col-md-6 mb-3">
-                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                            <button type="submit" class="btn btn-primary btn-lg">Update Student</button>
                         </div>
                     </div>
                 </form>
